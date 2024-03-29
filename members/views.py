@@ -27,6 +27,10 @@ def main(request):
   return HttpResponse(template.render())
 
 def testing(request):
+  # Colonnes spécifiques de retour
+  # Le values_list()Une méthode vous permet de revenir Seules les colonnes que vous spécifiez.
+  # mydata = Member.objects.values_list('firstname')
+  mydata = Member.objects.filter(firstname='Jane').values()
   mymembers = Member.objects.all().values()
   template = loader.get_template('template.html')
   # context = {
@@ -34,6 +38,14 @@ def testing(request):
   # }
   context = {
     'mymembers': mymembers,
+    'mydata': mydata,
     'x': True, 
   }
   return HttpResponse(template.render(context, request))
+
+def demo(request):
+  template = loader.get_template('index.html')
+  context = {
+    'fruits': ['Apple', 'Banana', 'Cherry'],   
+  }
+  return HttpResponse(template.render(context, request)) 

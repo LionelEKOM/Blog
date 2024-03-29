@@ -4,12 +4,24 @@
 <div class="container py-3">
   {% include "mymenu.html" with me="ASHUKA" sponsor="W3SCHOOLS" %}
   <h1>Variables du modèle Django</h1>
-    <ul class="list-group list-group-flush">
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Firstname</th>
+          <th scope="col">Lastname</th>
+          <th scope="col">Date d'adhesion</th>
+        </tr>
+      </thead>
       {% for x in mymembers %}
-        <li> Prenom : {{ x.firstname }}</li>
-        <li> Nom : {{ x.lastname }}</li>
+        <tr>
+          <td>{{ x.id }}</td>
+          <td>{{ x.firstname }}</td>
+          <td>{{ x.lastname }}</td>
+          <td>{{ x.joined_date }}</td>
+        </tr>
       {% endfor %}
-    </ul>
+    </table>
     {% comment %} Créer des variables dans le modèle {% endcomment %}
     {% with firstname="Tobias" %}
       <h1>
@@ -21,6 +33,11 @@
         {% endif %}
       </h1>
     {% endwith %}
+    {% for y in mydata %}
+      <ul>
+        <li>{{ y }}</li>
+      </ul>
+    {% endfor %}
     <p>This page contains a footer in a template.</p>
 
     {% include 'footer.html' %} 
