@@ -34,5 +34,6 @@ def testing(request):
   # }
   context = {
     'mymembers': mymembers,
+    'x': True, 
   }
   return HttpResponse(template.render(context, request))

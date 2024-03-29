@@ -2,17 +2,28 @@
 {% block title %}Welcome to my first Django project!{% endblock title %} 
 {% block content %}
 <div class="container py-3">
+  {% include "mymenu.html" with me="ASHUKA" sponsor="W3SCHOOLS" %}
   <h1>Variables du modèle Django</h1>
     <ul class="list-group list-group-flush">
       {% for x in mymembers %}
         <li> Prenom : {{ x.firstname }}</li>
+        <li> Nom : {{ x.lastname }}</li>
       {% endfor %}
     </ul>
     {% comment %} Créer des variables dans le modèle {% endcomment %}
     {% with firstname="Tobias" %}
-      <h1>Hello {{ firstname }}, how are you?</h1>
+      <h1>
+        Hello {{ firstname }}, how are you?
+        {% if x %}
+          Fine thanks !!
+          {% else %}
+            Sorry, I'm not fine today
+        {% endif %}
+      </h1>
     {% endwith %}
+    <p>This page contains a footer in a template.</p>
 
+    {% include 'footer.html' %} 
 </div>
 
 {% endblock content %}
