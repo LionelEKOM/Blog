@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends "master.html" %} 
+{% block title %}Welcome to my first Django project!{% endblock title %} 
+{% block content %}
+<div class="container py-3">
+  <h1>Variables du modèle Django</h1>
+    <ul class="list-group list-group-flush">
+      {% for x in mymembers %}
+        <li> Prenom : {{ x.firstname }}</li>
+      {% endfor %}
+    </ul>
+    {% comment %} Créer des variables dans le modèle {% endcomment %}
+    {% with firstname="Tobias" %}
+      <h1>Hello {{ firstname }}, how are you?</h1>
+    {% endwith %}
 
-{% for x in fruits %}
-  <h1>{{ x }}</h1>
-{% endfor %}
+</div>
 
-<p>In views.py you can see what the fruits variable looks like.</p>
-
-</body>
-</html>
+{% endblock content %}
