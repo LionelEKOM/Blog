@@ -1,0 +1,23 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Welcome to my first Django project!
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+  <div class="row sm-6">
+    <div class="card mt-3" style="width: 18rem;">
+      <div class="card-body">
+        <h2>Welcome to my first Django project!</h2>
+        <h3 class="card-subtitle mb-2 text-body-secondary">Members</h3>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="card-link">Card link</a>
+        <p>Check out all our <a class="btn btn-primary mx-auto p-2" href="members/">members</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+{% endblock %}
