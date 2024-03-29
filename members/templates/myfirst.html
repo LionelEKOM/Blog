@@ -1,17 +1,26 @@
 {% extends "master.html" %} 
 {% block title %}Welcome to my first Django project!{% endblock title %} 
 {% block content %}
+{% include "header.html" %}
   <div class="container py-5">
     <h1>Hello World!</h1>
     <p>Welcome to my first Django project!</p>
     <p><a href="/">HOME</a></p>
     <h1>Members</h1>
-    <ul class="list-group list-group-flush">
+    {% comment %} <ul class="list-group list-group-flush">
       {% for x in mymembers %}
       <li class="list-group-item"></li>
       <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
       {% endfor %}
-    </ul>
+    </ul> {% endcomment %}
+    <div class="mycard">
+      <h1>Members</h1>
+      <ul>
+        {% for x in mymembers %}
+          <li onclick="window.location = 'details/{{ x.id }}'">{{ x.firstname }} {{ x.lastname }}</li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
   {% include 'footer.html' %} 
 {% endblock content %}

@@ -11,21 +11,10 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="{% static 'myglobal.css' %}">
+    <link rel="stylesheet" href="{% static 'mystyles.css' %}">
   </head>
   <body>
-     <nav class="navbar bg-body-primary bg-primary">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img
-            src="/docs/5.3/assets/brand/bootstrap-logo.svg"
-            alt="Bootstrap"
-            width="30"
-            height="24"
-          />
-        </a>
-      </div>
-    </nav>
+    
     {% block content %}
    
     {% endblock content %}
